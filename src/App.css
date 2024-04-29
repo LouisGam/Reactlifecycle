@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+ul > li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 0.5rem;
+  border: 5px solid grey;
+  margin-bottom: 1rem;
+}
+
+ul img {
+  max-width: clamp(100px, 450px);
+  height: auto;
+}
