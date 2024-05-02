@@ -36,7 +36,7 @@ function FilmsPage() {
             id="searchDirector"
             onChange={(event) => {
                 setSearchDirector(event.target.value)}}>
-            <option value="All"></option>
+            <option value="">All Directors</option>
             {allDirectors.map((director) => {
                 return <option value={director}>{director}</option>})}
               
