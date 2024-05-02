@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./films.page.jsx";
 import { useEffect } from "react";
+import { getListOf, filterFilmsByDirector } from "../helpers/film.helpers.js";
 
 function FilmsPage() {
   const [films, setFilms] = useState([]);
@@ -37,7 +38,7 @@ function FilmsPage() {
                 setSearchDirector(event.target.value)}}>
             <option value="All"></option>
             {allDirectors.map((director) => {
-                return<option value={director}>{director}</option>})}
+                return <option value={director}>{director}</option>})}
               
           </select>
         </div>
