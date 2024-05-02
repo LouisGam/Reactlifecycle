@@ -1,46 +1,28 @@
-import { useState } from "react";
-import "./App.css";
-import { useEffect } from "react";
+import { HomePage } from "./pages";
+import { FilmsPage } from "./pages";
+import { BrowserRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-function App() {
-  const [films, setFilms] = useState(["Godzilla"]);
-
-    useEffect(() => {
-      fetch(`https://studioghibliapi-d6fc8.web.app/films`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setFilms(data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, []);
-
+function App() {   
 
   return (
-    <>
-      <h1>Studio Films List</h1>
-      <p>Created By: Louis Gambardella</p>
-      <ul>
-        {films.map((film) => {
-          return (
-            <li key={film.id}>
-              <div className="movie-left">
-              <h2>{film.title}</h2>
-              <img src={film.image} alt={`${film.title} banner`} />
-              </div>
-              <div className="movie-right">
-                <p>{film.description}</p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </>
-  );
-}
 
+    <BrowserRouter>
+    <nav>
+      <ul>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/films">Films</NavLink></li>
+      </ul>
+    </nav>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/films" element={<FilmsPage />} />
+    </Routes>
+    </BrowserRouter>
+
+
+  )
+}
 export default App;
