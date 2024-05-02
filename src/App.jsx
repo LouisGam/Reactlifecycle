@@ -1,9 +1,5 @@
-import { HomePage } from "./pages";
-import { FilmsPage } from "./pages";
-import { BrowserRouter } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { HomePage, FilmsPage, SingleFilmPage } from "./pages";
+import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
 
 function App() {   
 
@@ -19,6 +15,8 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/films" element={<FilmsPage />} />
+      <Route path="film/:id" element={<SingleFilmPage />} />
+
     </Routes>
     </BrowserRouter>
 

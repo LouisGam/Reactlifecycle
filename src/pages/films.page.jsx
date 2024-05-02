@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "./films.page.jsx";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { filterFilmsByDirector, getListOf } from "../helpers/film.helpers.js";
 
 function FilmsPage() {
+
   const [films, setFilms] = useState([]);
     const [searchDirector, setSearchDirector] = useState("");
+
     useEffect(() => {
       fetch(`https://studioghibliapi-d6fc8.web.app/films`)
         .then((response) => {
@@ -48,7 +52,7 @@ function FilmsPage() {
           return (
             <li key={film.id}>
               <div className="movie-left">
-              <h2>{film.title}</h2>
+              <h2><Link to={`film/${film.id}`}>{film.title}</Link></h2>
               <img src={film.image} alt={`${film.title} banner`} />
               </div>
               <div className="movie-right">
