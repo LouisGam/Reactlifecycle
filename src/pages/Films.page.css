@@ -17,3 +17,17 @@ ul img {
   max-width: clamp(100px, 450px);
   height: auto;
 }
+
+.filmStats > div {
+  display:  flex;
+  justify-content: space-between;
+}
+
+.filmStats {
+max-width: 50%;
+margin-inline: auto;
+
+}
+
+
+
